@@ -78,25 +78,25 @@ Entity(
 
 def crear_pc(x, z):
 
-    # una sola mesa para las 4 computadoras (más ancha)
+# una sola mesa para las 4 computadoras (más ancha)
     Entity(
         model='cube',
-        scale=(10, 0.2, 1.2),
+        scale=(7, 0.2, 1.2),
         position=(x, 1, z),
         color=COLOR_MESA,
         collider='box'
     )
 
-    # patas de la mesa
-    for dx in (-1.2, 2):
-        for dz in (-0.5, 0.5):
-            Entity(
-                model='cube',
-                scale=(0.1, 1, 0.1),
-                position=(x + dx, 0.5, z + dz),
-                color=color.dark_gray
-            )
+    # base sólida de madera negra (cubrimiento completo)
+    Entity(
+        model='cube',
+        scale=(7, 0.8, 1.2),
+        position=(x, 0.6, z),
+        color=COLOR_MESA,
+        collider='box'
+    )
 
+   
     # crear 4 computadoras por mesa
     for i in range(4):
         offset_x = (i - 1.5) * 2  # más espacio entre PCs
