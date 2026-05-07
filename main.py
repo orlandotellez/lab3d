@@ -14,7 +14,7 @@ window.fps_counter.enabled = True
 # =========================
 
 AZUL_PARED = color.hex('#274790')
-COLOR_PISO = color.gray
+COLOR_PISO = color.hex('#181825')
 COLOR_MESA = color.black
 
 
@@ -38,8 +38,8 @@ floor = Entity(
 # pared trasera
 Entity(
     model='cube',
-    scale=(22, 6, 1),
-    position=(0, 3, 13),
+    scale=(18, 6, 1),
+    position=(0, 3, 12),
     color=AZUL_PARED,
     collider='box'
 )
@@ -47,8 +47,8 @@ Entity(
 # pared frontal
 Entity(
     model='cube',
-    scale=(22, 6, 1),
-    position=(0, 3, -13),
+    scale=(18, 6, 1),
+    position=(0, 3, -12),
     color=AZUL_PARED,
     collider='box'
 )
@@ -56,8 +56,8 @@ Entity(
 # pared izquierda
 Entity(
     model='cube',
-    scale=(1, 6, 26),
-    position=(-11, 3, 0),
+    scale=(1, 6, 24),
+    position=(-9, 3, 0),
     color=AZUL_PARED,
     collider='box'
 )
@@ -65,8 +65,8 @@ Entity(
 # pared derecha
 Entity(
     model='cube',
-    scale=(1, 6, 26),
-    position=(11, 3, 0),
+    scale=(1, 6, 24),
+    position=(9, 3, 0),
     color=AZUL_PARED,
     collider='box'
 )
@@ -139,7 +139,7 @@ def crear_pc(x, z):
 # =========================
 
 # 2 columnas x 4 mesas = 8 mesas, cada una con 4 PCs = 32 computadoras
-columnas = [-7, 7]  # más separadas para un pasillo más amplio
+columnas = [-5, 5]  # más separadas para un pasillo más amplio
 
 for col_idx, x in enumerate(columnas):
     for fila in range(4):
