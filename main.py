@@ -143,7 +143,7 @@ columnas = [-7, 7]  # más separadas para un pasillo más amplio
 
 for col_idx, x in enumerate(columnas):
     for fila in range(4):
-        z = -9 + (fila * 7)  # más espacio entre mesas
+        z = -9 + (fila * 5)  # menos espacio entre mesas
         crear_pc(x=x, z=z)
 
 
