@@ -1,0 +1,1 @@
+# Lab3D - objects/__init__.py
