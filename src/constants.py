@@ -12,3 +12,4 @@ AZUL_VENTANA = color.hex('#274762')
 COLOR_PISO = color.hex('#181825')
 COLOR_CORTINA = color.white
 COLOR_MESA = color.black
+COLOR_TV= color.black
