@@ -2,7 +2,9 @@
 # Estaciones de trabajo con PCs
 
 from ursina import *
+import math
 from src.constants import COLOR_MESA
+from src.objects.chair import create_chair
 
 
 def create_computer_station(x, z):
@@ -61,6 +63,9 @@ def create_computer_station(x, z):
             position=(x + offset_x, 1.12, z - 0.35),
             color=color.dark_gray
         )
+
+        # Silla (detrás de cada compu, orientada hacia la mesa)
+        create_chair(x=x + offset_x, z=z - 1.5)
 
 
 def create_lab_layout():
