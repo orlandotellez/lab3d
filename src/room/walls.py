@@ -65,17 +65,35 @@ def create_front_blackboard():
 
 
 def create_walls():
-    Entity(model='cube', scale=(18,6,1), position=(0,3,12),
+    # Pared frontal (dividida en dos mitades)
+    # Mitad inferior (color original)
+    Entity(model='cube', scale=(18, 3, 1), position=(0, 1.5, 12),
            color=AZUL_PARED, collider='box')
-    Entity(model='cube', scale=(18,6,1), position=(0,3,-12),
+    # Mitad superior (blanco)
+    Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, 12),
+           color=color.white, collider='box')
+    
+    # Pared trasera (dividida en dos mitades)
+    Entity(model='cube', scale=(18, 3, 1), position=(0, 1.5, -12),
            color=AZUL_PARED, collider='box')
+    Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, -12),
+           color=color.white, collider='box')
+    
     create_side_door(7.8, sign=-1)
     create_front_back_curtains()
     create_front_tv()
     create_front_blackboard()
-    Entity(model='cube', scale=(1,6,24), position=(-9,3,0),
+    
+    # Pared izquierda (dividida en dos mitades)
+    Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),
            color=AZUL_PARED, collider='box')
+    Entity(model='cube', scale=(1, 3, 24), position=(-9, 4.5, 0),
+           color=color.white, collider='box')
     create_side_window_row(-9, sign=-1)
-    Entity(model='cube', scale=(1,6,24), position=(9,3,0),
+    
+    # Pared derecha (dividida en dos mitades)
+    Entity(model='cube', scale=(1, 3, 24), position=(9, 1.5, 0),
            color=AZUL_PARED, collider='box')
+    Entity(model='cube', scale=(1, 3, 24), position=(9, 4.5, 0),
+           color=color.white, collider='box')
     create_side_window_row(9, sign=1)
