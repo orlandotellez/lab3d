@@ -48,7 +48,7 @@ def create_tv(x_center, wall_z, sign=1):
     Entity(model='cube', 
            scale=(7, 4, 0.05),
          rotation=(0, -30, 0),  
-           position=(x_center, 4.5, z), color=color.black)
+           position=(x_center, 3.8, z), color=color.black)
 
 def create_front_tv():
     create_tv(-5, 10, sign=1)   # ← llama a create_tv, centrada en x=0

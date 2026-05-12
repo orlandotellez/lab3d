@@ -6,6 +6,7 @@ from ursina import *
 # Módulos del proyecto
 from src.constants import *
 from src.room.floor import create_floor
+from src.room.ceiling import create_ceiling
 from src.room.walls import create_walls
 from src.objects.computer import create_lab_layout
 from src.lighting import create_lighting
@@ -28,6 +29,7 @@ window.color = color.hex('#CBCBCB')
 # ESCENA
 # =========================
 create_floor()
+create_ceiling()
 create_walls()
 create_lab_layout()
 create_lighting()
