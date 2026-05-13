@@ -82,6 +82,13 @@ def create_front_air_conditioner():
     # Aire acondicionado al lado de la puerta (pared derecha, en z=9.5)
     create_air_conditioner_side(8.3, -2, sign=-1)
 
+def create_back_cube():
+    # Cubo negro pegado a la pared de atrás (lado derecho, cerca de la puerta)
+    Entity(model='cube',
+           scale=(2, 2, 10),
+           position=(0, 4, -14.7),
+           color=color.black)
+
 def create_walls():
     # Pared frontal (dividida en dos mitades)
     # Mitad inferior (color original)
@@ -102,6 +109,7 @@ def create_walls():
     create_front_tv()
     create_front_blackboard()
     create_front_air_conditioner()
+    create_back_cube()
     
     # Pared izquierda (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),
