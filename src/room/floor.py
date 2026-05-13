@@ -1,4 +1,3 @@
-# Lab3D - floor.py
 # El piso del laboratorio
 
 from ursina import *

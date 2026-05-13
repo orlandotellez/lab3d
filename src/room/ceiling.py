@@ -1,4 +1,3 @@
-# Lab3D - ceiling.py
 # El techo del laboratorio
 
 from ursina import *
@@ -8,7 +7,7 @@ from src.constants import COLOR_PISO
 def create_ceiling():
     """Crea el techo del laboratorio con rectángulos grandes."""
 
-    # Techo principal (color del piso)
+    # Techo principal 
     Entity(
         model='cube',
         scale=(22, 0.2, 26),
@@ -18,8 +17,6 @@ def create_ceiling():
     )
 
     # Patrón de rectángulos grandes con lados grises
-    # Estos van ABAJO del techo, en Y=6.05
-    
     # Dimensiones de los rectángulos del patrón
     rect_width = 4
     rect_depth = 4

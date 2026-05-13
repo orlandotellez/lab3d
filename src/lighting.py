@@ -1,4 +1,3 @@
-# Lab3D - lighting.py
 # Sistema de iluminación del laboratorio
 
 from ursina import *

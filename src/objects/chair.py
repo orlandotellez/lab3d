@@ -1,4 +1,3 @@
-# Lab3D - chair.py
 # Sillas de oficina reclinables
 
 from ursina import *
@@ -18,10 +17,7 @@ def create_chair(x, z, angle=0):
     # Grupo para rotar toda la silla
     chair = Entity(position=(x, 0, z), rotation_y=angle)
 
-    # =========================
     # PATAS (plateadas, 4 patas en las esquinas)
-    # =========================
-
     posiciones = [
         (0.22, 0.22),   # frente derecha
         (-0.22, 0.22),  # frente izquierda
@@ -38,9 +34,7 @@ def create_chair(x, z, angle=0):
             parent=chair
         )
 
-    # =========================
     # ESTRUCTURA (plateado)
-    # =========================
 
     # Plataforma del asiento
     Entity(
@@ -51,9 +45,7 @@ def create_chair(x, z, angle=0):
         parent=chair
     )
 
-    # =========================
     # ASIENTO (azul - cojín)
-    # =========================
 
     # Cojín azul
     Entity(
@@ -64,9 +56,7 @@ def create_chair(x, z, angle=0):
         parent=chair
     )
 
-    # =========================
     # RESPALDO (plateado, reclinable)
-    # =========================
 
     # Estructura del respaldo
     Entity(
@@ -88,9 +78,7 @@ def create_chair(x, z, angle=0):
         parent=chair
     )
 
-    # =========================
     # SOPORTE RESPALDO
-    # =========================
 
     # Barra que conecta respaldo con el asiento
     Entity(

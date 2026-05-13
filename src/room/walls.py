@@ -1,95 +1,23 @@
-# Lab3D - walls.py
-# Las paredes del laboratorio
+# Las paredes del laboratorio 
 
 from ursina import *
-from src.constants import AZUL_PARED, AZUL_VENTANA, COLOR_CORTINA, COLOR_TV
+from src.constants import AZUL_PARED
+from src.objects.walls import (
+    create_side_door,
+    create_front_back_curtains,
+    create_side_window_row,
+)
+from src.objects.wall_decorations import (
+    create_front_tv,
+    create_front_blackboard,
+    create_front_air_conditioner,
+    create_back_cube,
+)
 
-COLOR_MARCO = color.black
-COLOR_PARED = color.hex('#5b667d')
-COLOR_CORITNAS = color.hex('#7f716e')
-COLOR_PIZARRA = color.hex('#b8b6b7')
-
-def create_window(z_center, wall_x, sign=1):
-    face_x = wall_x - sign * 0.5
-    x      = face_x - sign * 0.03
-    Entity(model='cube', scale=(0.05, 3.5, 3),
-           position=(x, 4.0, z_center), color=COLOR_MARCO)
-    Entity(model='cube', scale=(0.05, 3, 2.3),
-           position=(x - sign * 0.001, 4.0, z_center), color=AZUL_VENTANA)
-
-def create_side_window_row(wall_x, sign=1):
-    for i in range(3):
-        create_window(-9 + i * 2.5, wall_x, sign)
-    for i in range(3):
-        create_window(0.7 + i * 2.5, wall_x, sign)
-
-def create_door(z_center, wall_x, sign=1):
-    face_x = wall_x - sign * 0.5
-    x      = face_x - sign * 0.03
-    Entity(model='cube', scale=(0.05, 5, 3),
-           position=(x, 2.0, z_center), color=COLOR_PARED)
-
-def create_side_door(wall_x, sign=1):
-    create_door(9.5, wall_x, sign)
-
-def create_curtain(x_center, wall_z, sign=1):
-    face_z = wall_z - sign * 0.5
-    z      = face_z - sign * 0.03
-    Entity(model='cube', scale=(20, 4, 0.05),
-           position=(x_center, 4, z), color=COLOR_CORITNAS)
-
-def create_front_back_curtains():
-    for x in (-8, 8):
-        create_curtain(x, 12, sign=1)
-
-def create_tv(x_center, wall_z, sign=1):
-    face_z = wall_z - sign * 0.5
-    z      = face_z - sign * 0.03
-    Entity(model='cube', 
-           scale=(7, 4, 0.05),
-         rotation=(0, -30, 0),  
-           position=(x_center, 3.8, z), color=color.black)
-
-def create_front_tv():
-    create_tv(-5, 10, sign=1)   # ← llama a create_tv, centrada en x=0
-
-def create_blackboard(x_center, wall_z, sign=1):
-    face_z = wall_z - sign * 0.5
-    z      = face_z - sign * 0.03
-    Entity(model='cube', 
-           scale=(7, 3.8, 0.05),
-           position=(x_center, 3.5, z), color=COLOR_PIZARRA)
-
-def create_front_blackboard():
-    create_blackboard(3, 11.8, sign=1)   # ← llama a create_tv, centrada en x=0
-
-def create_air_conditioner_side(x_center, wall_z, sign=1):
-    face_z = wall_z - sign * 0.5
-    z = face_z - sign * 0.03
-    
-    Entity(model='cube', 
-           scale=(0.4, 1.8, 5),
-           position=(x_center, 5.2, z), 
-           color=color.hex('#e8e8e8'))
-    
-    # Raja negra por donde sale el aire
-    Entity(model='cube', 
-           scale=(0.45, 0.15, 4.5),
-           position=(x_center, 4.5, z), 
-           color=color.black)
-
-def create_front_air_conditioner():
-    # Aire acondicionado al lado de la puerta (pared derecha, en z=9.5)
-    create_air_conditioner_side(8.3, -2, sign=-1)
-
-def create_back_cube():
-    # Cubo negro pegado a la pared de atrás (lado derecho, cerca de la puerta)
-    Entity(model='cube',
-           scale=(2, 2, 10),
-           position=(0, 4, -14.7),
-           color=color.black)
 
 def create_walls():
+    """Crea todas las paredes del laboratorio."""
+
     # Pared frontal (dividida en dos mitades)
     # Mitad inferior (color original)
     Entity(model='cube', scale=(18, 3, 1), position=(0, 1.5, 12),
@@ -97,27 +25,27 @@ def create_walls():
     # Mitad superior (blanco)
     Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, 12),
            color=color.white, collider='box')
-    
+
     # Pared trasera (dividida en dos mitades)
     Entity(model='cube', scale=(18, 3, 1), position=(0, 1.5, -12),
            color=AZUL_PARED, collider='box')
     Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, -12),
            color=color.white, collider='box')
-    
+
     create_side_door(7.8, sign=-1)
     create_front_back_curtains()
     create_front_tv()
     create_front_blackboard()
     create_front_air_conditioner()
     create_back_cube()
-    
+
     # Pared izquierda (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),
            color=AZUL_PARED, collider='box')
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 4.5, 0),
            color=color.white, collider='box')
     create_side_window_row(-9, sign=-1)
-    
+
     # Pared derecha (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(9, 1.5, 0),
            color=AZUL_PARED, collider='box')

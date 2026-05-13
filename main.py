@@ -1,9 +1,7 @@
-# Lab3D - main.py
 # Entry point del laboratorio 3D
 
 from ursina import *
 
-# Módulos del proyecto
 from src.constants import *
 from src.room.floor import create_floor
 from src.room.ceiling import create_ceiling
@@ -13,10 +11,7 @@ from src.lighting import create_lighting
 from src.ui.compass import create_compass
 from entities.player import create_player
 
-# =========================
 # APP
-# =========================
-
 app = Ursina()
 
 window.title = 'Laboratorio 3D'
@@ -25,9 +20,7 @@ window.exit_button.visible = False
 window.fps_counter.enabled = True
 window.color = color.hex('#CBCBCB')
 
-# =========================
 # ESCENA
-# =========================
 create_floor()
 create_ceiling()
 create_walls()
@@ -37,8 +30,5 @@ create_player()
 create_compass()
 
 
-# =========================
 # EJECUTAR
-# =========================
-
 app.run()
