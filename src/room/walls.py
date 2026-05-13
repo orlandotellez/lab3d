@@ -12,6 +12,7 @@ from src.objects.wall_decorations import (
     create_front_blackboard,
     create_front_air_conditioner,
     create_back_cube,
+    create_back_doors,
 )
 
 
@@ -38,6 +39,7 @@ def create_walls():
     create_front_blackboard()
     create_front_air_conditioner()
     create_back_cube()
+    create_back_doors()
 
     # Pared izquierda (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),

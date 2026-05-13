@@ -1,4 +1,3 @@
-# Lab3D - computer.py
 # Estaciones de trabajo con PCs
 
 from ursina import *

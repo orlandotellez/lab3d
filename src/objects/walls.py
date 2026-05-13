@@ -1,4 +1,3 @@
-# Lab3D - objects/walls.py
 # Elementos de pared: ventanas, puertas, cortinas
 
 from ursina import *

@@ -1,4 +1,3 @@
-# Lab3D - objects/wall_decorations.py
 # Decoraciones de pared: TV, pizarra, aire acondicionado, cubo
 
 from ursina import *
@@ -64,3 +63,24 @@ def create_back_cube():
            scale=(2, 2, 10),
            position=(0, 4, -14.7),
            color=color.black)
+
+
+def create_back_door(x_center, z_position):
+    """Crea una puerta en la pared de atrás, orientada hacia adentro."""
+    Entity(model='cube',
+           scale=(2, 4, 0.05),
+           position=(x_center, 2.5, z_position),
+           color=color.hex('#5b667d'))
+
+def create_back_black_door(x_center, z_position):
+    Entity(model='cube',
+           scale=(2, 4, 0.05),
+           position=(x_center, 2.5, z_position),
+           color=color.hex('#000000'))
+
+
+def create_back_doors():
+    """Crea dos puertas en la pared de atrás, a la par del cubo."""
+    create_back_door(-5.9, -11.3)
+    create_back_door(-3, -11.3)
+    create_back_black_door(5, -11)
