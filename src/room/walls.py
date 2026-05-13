@@ -63,6 +63,24 @@ def create_blackboard(x_center, wall_z, sign=1):
 def create_front_blackboard():
     create_blackboard(3, 11.8, sign=1)   # ← llama a create_tv, centrada en x=0
 
+def create_air_conditioner_side(x_center, wall_z, sign=1):
+    face_z = wall_z - sign * 0.5
+    z = face_z - sign * 0.03
+    
+    Entity(model='cube', 
+           scale=(0.4, 1.8, 5),
+           position=(x_center, 5.2, z), 
+           color=color.hex('#e8e8e8'))
+    
+    # Raja negra por donde sale el aire
+    Entity(model='cube', 
+           scale=(0.45, 0.15, 4.5),
+           position=(x_center, 4.5, z), 
+           color=color.black)
+
+def create_front_air_conditioner():
+    # Aire acondicionado al lado de la puerta (pared derecha, en z=9.5)
+    create_air_conditioner_side(8.3, -2, sign=-1)
 
 def create_walls():
     # Pared frontal (dividida en dos mitades)
@@ -83,6 +101,7 @@ def create_walls():
     create_front_back_curtains()
     create_front_tv()
     create_front_blackboard()
+    create_front_air_conditioner()
     
     # Pared izquierda (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),
