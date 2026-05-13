@@ -1,8 +1,7 @@
 # Decoraciones de pared: TV, pizarra, aire acondicionado, cubo
 
 from ursina import *
-
-COLOR_PIZARRA = color.hex('#b8b6b7')
+from src.constants import COLOR_PIZARRA, COLOR_TV, COLOR_AIRE_CUERPO, COLOR_AIRE_REJA, COLOR_PUERTA, COLOR_PUERTA_NEGRA
 
 
 def create_tv(x_center, wall_z, sign=1):
@@ -12,7 +11,7 @@ def create_tv(x_center, wall_z, sign=1):
     Entity(model='cube',
            scale=(7, 4, 0.05),
            rotation=(0, -30, 0),
-           position=(x_center, 3.8, z), color=color.black)
+           position=(x_center, 3.8, z), color=COLOR_TV)
 
 
 def create_front_tv():
@@ -43,13 +42,13 @@ def create_air_conditioner_side(x_center, wall_z, sign=1):
     Entity(model='cube',
            scale=(0.4, 1.8, 5),
            position=(x_center, 5.2, z),
-           color=color.hex('#e8e8e8'))
+           color=COLOR_AIRE_CUERPO)
 
     # Raja negra por donde sale el aire
     Entity(model='cube',
            scale=(0.45, 0.15, 4.5),
            position=(x_center, 4.5, z),
-           color=color.black)
+           color=COLOR_AIRE_REJA)
 
 
 def create_front_air_conditioner():
@@ -62,7 +61,7 @@ def create_back_cube():
     Entity(model='cube',
            scale=(2, 2, 10),
            position=(0, 4, -14.7),
-           color=color.black)
+           color=COLOR_TV)
 
 
 def create_back_door(x_center, z_position):
@@ -70,13 +69,14 @@ def create_back_door(x_center, z_position):
     Entity(model='cube',
            scale=(2, 4, 0.05),
            position=(x_center, 2.5, z_position),
-           color=color.hex('#5b667d'))
+           color=COLOR_PUERTA)
+
 
 def create_back_black_door(x_center, z_position):
     Entity(model='cube',
            scale=(2, 4, 0.05),
            position=(x_center, 2.5, z_position),
-           color=color.hex('#000000'))
+           color=COLOR_PUERTA_NEGRA)
 
 
 def create_back_doors():

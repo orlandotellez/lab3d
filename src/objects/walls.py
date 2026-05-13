@@ -1,11 +1,7 @@
 # Elementos de pared: ventanas, puertas, cortinas
 
 from ursina import *
-from src.constants import AZUL_VENTANA
-
-COLOR_MARCO = color.black
-COLOR_PARED = color.hex('#5b667d')
-COLOR_CORITNAS = color.hex('#7f716e')
+from src.constants import AZUL_VENTANA, COLOR_MARCO, COLOR_PUERTA, COLOR_CORTINA_PARED
 
 
 def create_window(z_center, wall_x, sign=1):
@@ -31,7 +27,7 @@ def create_door(z_center, wall_x, sign=1):
     face_x = wall_x - sign * 0.5
     x = face_x - sign * 0.03
     Entity(model='cube', scale=(0.05, 5, 3),
-           position=(x, 2.0, z_center), color=COLOR_PARED)
+           position=(x, 2.0, z_center), color=COLOR_PUERTA)
 
 
 def create_side_door(wall_x, sign=1):
@@ -44,7 +40,7 @@ def create_curtain(x_center, wall_z, sign=1):
     face_z = wall_z - sign * 0.5
     z = face_z - sign * 0.03
     Entity(model='cube', scale=(20, 4, 0.05),
-           position=(x_center, 4, z), color=COLOR_CORITNAS)
+           position=(x_center, 4, z), color=COLOR_CORTINA_PARED)
 
 
 def create_front_back_curtains():

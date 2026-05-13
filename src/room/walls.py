@@ -1,7 +1,7 @@
-# Las paredes del laboratorio 
+# Las paredes del laboratorio
 
 from ursina import *
-from src.constants import AZUL_PARED
+from src.constants import AZUL_PARED, COLOR_PARED_SUPERIOR
 from src.objects.walls import (
     create_side_door,
     create_front_back_curtains,
@@ -25,13 +25,13 @@ def create_walls():
            color=AZUL_PARED, collider='box')
     # Mitad superior (blanco)
     Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, 12),
-           color=color.white, collider='box')
+           color=COLOR_PARED_SUPERIOR, collider='box')
 
     # Pared trasera (dividida en dos mitades)
     Entity(model='cube', scale=(18, 3, 1), position=(0, 1.5, -12),
            color=AZUL_PARED, collider='box')
     Entity(model='cube', scale=(18, 3, 1), position=(0, 4.5, -12),
-           color=color.white, collider='box')
+           color=COLOR_PARED_SUPERIOR, collider='box')
 
     create_side_door(7.8, sign=-1)
     create_front_back_curtains()
@@ -45,12 +45,12 @@ def create_walls():
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 1.5, 0),
            color=AZUL_PARED, collider='box')
     Entity(model='cube', scale=(1, 3, 24), position=(-9, 4.5, 0),
-           color=color.white, collider='box')
+           color=COLOR_PARED_SUPERIOR, collider='box')
     create_side_window_row(-9, sign=-1)
 
     # Pared derecha (dividida en dos mitades)
     Entity(model='cube', scale=(1, 3, 24), position=(9, 1.5, 0),
            color=AZUL_PARED, collider='box')
     Entity(model='cube', scale=(1, 3, 24), position=(9, 4.5, 0),
-           color=color.white, collider='box')
+           color=COLOR_PARED_SUPERIOR, collider='box')
     create_side_window_row(9, sign=1)

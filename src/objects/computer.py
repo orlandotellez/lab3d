@@ -2,13 +2,13 @@
 
 from ursina import *
 import math
-from src.constants import COLOR_MESA
+from src.constants import COLOR_MESA, COLOR_MONITOR, COLOR_PANTALLA, COLOR_BASE_MONITOR, COLOR_TECLADO
 from src.objects.chair import create_chair
 
 
 def create_computer_station(x, z):
     """Crea una estación de trabajo con 4 computadoras."""
-    
+
     # Mesa única para las 4 PCs (más ancha)
     Entity(
         model='cube',
@@ -30,13 +30,13 @@ def create_computer_station(x, z):
     # Crear 4 computadoras por mesa
     for i in range(4):
         offset_x = (i - 1.5) * 2  # más espacio entre PCs
-        
+
         # Monitor
         Entity(
             model='cube',
             scale=(0.9, 0.6, 0.08),
             position=(x + offset_x, 1.55, z),
-            color=color.black
+            color=COLOR_MONITOR
         )
 
         # Pantalla
@@ -44,7 +44,7 @@ def create_computer_station(x, z):
             model='cube',
             scale=(0.75, 0.45, 0.01),
             position=(x + offset_x, 1.55, z - 0.045),
-            color=color.azure
+            color=COLOR_PANTALLA
         )
 
         # Base monitor
@@ -52,7 +52,7 @@ def create_computer_station(x, z):
             model='cube',
             scale=(0.08, 0.3, 0.08),
             position=(x + offset_x, 1.25, z),
-            color=color.gray
+            color=COLOR_BASE_MONITOR
         )
 
         # Teclado
@@ -60,7 +60,7 @@ def create_computer_station(x, z):
             model='cube',
             scale=(0.8, 0.05, 0.3),
             position=(x + offset_x, 1.12, z - 0.35),
-            color=color.dark_gray
+            color=COLOR_TECLADO
         )
 
         # Silla (detrás de cada compu, orientada hacia la mesa)

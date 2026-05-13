@@ -1,6 +1,7 @@
 # Sistema de iluminación del laboratorio
 
 from ursina import *
+from src.constants import COLOR_LUZ_AMBIENTE
 
 
 def create_lighting():
@@ -12,5 +13,5 @@ def create_lighting():
     )
 
     AmbientLight(
-        color=color.rgba(120, 120, 120, 0.4)
+        color=COLOR_LUZ_AMBIENTE
     )

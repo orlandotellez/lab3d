@@ -2,7 +2,7 @@
 
 from ursina import *
 
-from src.constants import *
+from src.constants import COLOR_TECHO
 from src.room.floor import create_floor
 from src.room.ceiling import create_ceiling
 from src.room.walls import create_walls
@@ -18,7 +18,7 @@ window.title = 'Laboratorio 3D'
 window.borderless = False
 window.exit_button.visible = False
 window.fps_counter.enabled = True
-window.color = color.hex('#CBCBCB')
+window.color = COLOR_TECHO
 
 # ESCENA
 create_floor()
